@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "adaptive-throttling-with-retry": "^2.0.3",
+    "axios": "^0.24.0",
+    "follow-redirects": "^1.14.6",
+    "ts-retry-promise": "^0.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

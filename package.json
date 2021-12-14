@@ -1,0 +1,78 @@
+{
+  "name": "adaptive-throttling-with-retry",
+  "version": "0.0.1",
+  "description": "Adaptive throttling based on the sre-book + rafaelcapucho + retry by requestRejectionProbability ",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "tsdx": "node_modules/.bin/tsdx",
+    "test": "jest --config jestconfig.json",
+    "build": "tsdx build",
+    "build:browser": "ENV_TYPE=browser tsdx build --target web --format umd --name index",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "lint": "eslint -c .eslintrc --ext .ts src/**/*.ts"
+  },
+  "size-limit": [
+    {
+      "path": "dist/adaptive-throttling-with-retry.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/adaptive-throttling-with-retry.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "prepare": "npm run build",
+  "prepublishOnly": "npm test && npm run lint",
+  "preversion": "npm run lint",
+  "author": "espigah",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Espigah/adaptive-throttling-with-retry"
+  },
+  "keywords": [
+    "fetch",
+    "throttling",
+    "resiliency",
+    "sre",
+    "scaling",
+    "retry",
+    "request-retry-promise",
+    "request"
+  ],
+  "bugs": {
+    "url": "https://github.com/Espigah/adaptive-throttling-with-retry/issues"
+  },
+  "homepage": "https://github.com/Espigah/adaptive-throttling-with-retry#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.4.1",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "size-limit": "^7.0.4",
+    "ts-jest": "^27.1.1",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "adaptive-throttling": "2.0.3"
+  }
+}
